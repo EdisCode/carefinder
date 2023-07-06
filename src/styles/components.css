@@ -2,33 +2,85 @@
 nav {
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(14, 61, 183, 0.15);
-  width: 1440px;
-  height: 100px;
-  display: flex;
   flex-shrink: 0;
+  margin-top: 20px;
 }
 
 .logo {
   color: var(--primary-color);
   font-size: 35px;
-  font-family: DM Sans;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: -0.385px;
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 10px;
+  height: 73px;
+  margin-left: 60px;
+  margin-right: 400px;
 }
 
 .navLink {
-  display: flex;
-  width: 118px;
-  height: 68px;
-  flex-direction: column;
   flex-shrink: 0;
   color: var(--text-color);
-  font-size: 27px;
-  font-family: DM Sans;
+  font-size: 22px;
+  font-style: normal;
+  line-height: 150%;
+  letter-spacing: -0.297px;
+  display: inline-flex;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.auth {
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: white;
+  letter-spacing: -0.297px;
+  margin: 4px;
+  padding: 6px 20px;
+  font-weight: 500;
+}
+
+.auth-danger {
+  background: red;
+}
+
+/* Search */
+.inputContainer {
+  width: 688px;
+  height: 64px;
+  background: hsl(0, 0%, 100%);
+  border-radius: 25px;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  max-width: 650px;
+  padding: 10px;
+  margin: auto;
+}
+
+.form-control {
+  width: 640px;
+  height: 20px;
+  position: relative;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
-  letter-spacing: -0.297px;
+  text-align: center;
+  letter-spacing: -0.011em;
+  outline-color: #c1c1c1;
+  color: grey;
+  border: none;
 }

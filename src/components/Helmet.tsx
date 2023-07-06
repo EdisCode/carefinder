@@ -12,7 +12,7 @@ const Helmet = (props: {
     | null
     | undefined;
 }) => {
-  document.title = "Savvy Shopper -" + props.title;
+  document.title = "Care Finder -" + props.title;
   return <div className="w-100">{props.children}</div>;
 };
 

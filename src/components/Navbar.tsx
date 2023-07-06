@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { NavLink, useNavigate, Link } from "react-router-dom";
-// import { Container, Row } from "reactstrap";
+import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../context/auth-context";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
@@ -32,7 +31,8 @@ const Navbar = () => {
 
   const navLinkStyles = ({ isActive }: any) => {
     return {
-      fontWeight: isActive ? "600" : "normal",
+      fontWeight: isActive ? "bold" : "normal",
+      padding: "10px",
     };
   };
 
@@ -49,32 +49,37 @@ const Navbar = () => {
         <NavLink style={navLinkStyles} to="/findHospital">
           Find Hospital
         </NavLink>
-        <div
-          // className="profile__actions"
-          ref={profileActionRef}
-          // onClick={toggleProfileActions}
-        >
-          {currentUser ? (
-            <>
-              <span>
-                <NavLink style={navLinkStyles} to="/profile">
-                  Profile
-                </NavLink>
-              </span>
-              <span>
-                <button onClick={logout} className="btn btn-danger">
-                  Logout
-                </button>
-              </span>
-            </>
-          ) : (
-            <div className="d-flex align-items-center justify-content-center flex-column">
-              <Link to="/signup">Signup</Link>
-              <Link to="/login">Login</Link>
-            </div>
-          )}
-        </div>
       </div>
+      <div
+        className="navLink"
+        ref={profileActionRef}
+        // onClick={toggleProfileActions}
+      >
+        {currentUser ? (
+          <div>
+            <span>
+              <NavLink className="auth" to="/profile">
+                Profile
+              </NavLink>
+            </span>
+            <span>
+              <NavLink onClick={logout} className="auth auth-danger" to={"/"}>
+                Logout
+              </NavLink>
+            </span>
+          </div>
+        ) : (
+          <div>
+            <NavLink className="auth" to="/login">
+              Login
+            </NavLink>
+            <NavLink className="auth" to="/signup">
+              Signup
+            </NavLink>
+          </div>
+        )}
+      </div>
+      {/* </div> */}
     </nav>
   );
 };
