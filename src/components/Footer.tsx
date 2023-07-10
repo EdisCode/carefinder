@@ -1,27 +1,25 @@
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHospital } from "@fortawesome/free-solid-svg-icons";
+import "../styles/components.css";
 
 const Footer = () => {
-  const year = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
+  const yearTxt = currentYear === 2022 ? "2022" : "2022 - " + currentYear;
   return (
     <footer className="footer">
-      <Container>
-        <Row>
-          <Col lg="4" className="mb-4" md="6">
-            <div className="logo">
-              <div>
-                <h1 className="text-white">Care Finder</h1>
-              </div>
-            </div>
+      <Container className="footerContainer">
+        <Col className="col">
+          <FontAwesomeIcon className="logo" icon={faHospital} />
+          <div className="logoText">CareFinder</div>
 
-            <p className="footer__text mt-4 ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae voluptates similique asperiores, ducimus dolorum
-              eveniet suscipit! Officia, voluptates quidem? Quidem.
-            </p>
-          </Col>
-
-          <Col lg="3" md="3" className="mb-4">
+          <p className="footer_text">
+            Discover Your Perfect Care: Find Your Hospital, Anytime, Anywhere!
+          </p>
+        </Col>
+        <Row className="row">
+          <Col className="rowcol">
             <div className="footer_quick-links">
               <h4 className="quick__links-title">Top Categories</h4>
               <ListGroup className="mb-3">
@@ -44,16 +42,16 @@ const Footer = () => {
             </div>
           </Col>
 
-          <Col lg="2" md="3" className="mb-4">
+          <Col className="rowcol">
             <div className="footer_quick-links">
               <h4 className="quick__links-title">Useful Links</h4>
               <ListGroup className="mb-3">
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/home">Home</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="/cart">Cart</Link>
+                  <Link to="/findHospital">Find Hospital</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0">
@@ -61,13 +59,13 @@ const Footer = () => {
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="#">Privacy Policy</Link>
+                  <Link to="/signup">Sign Up</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>
           </Col>
 
-          <Col lg="3 " md="4" className="mb-4">
+          <Col className="rowcol">
             <div className="footer_quick-links">
               <h4 className="quick__links-title">Contact</h4>
               <ListGroup className="footer__contact">
@@ -75,32 +73,32 @@ const Footer = () => {
                   <span>
                     <i className="ri-map-pin-2-line"></i>
                   </span>
-                  <p>127 Glover Court, Ikoyi, Lagos, Nigeria</p>
+                  <p>Oniru, Lagos, Nigeria</p>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-2">
                   <span>
                     <i className="ri-phone-line"></i>
                   </span>
-                  <p>+234 809 456 7889</p>
+                  <p>+234 419 419 4194</p>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-2">
                   <span>
                     <i className="ri-mail-line"></i>
                   </span>
-                  <p>mymart@gmail.com</p>
+                  <p>cema4.ee@gmail.com</p>
                 </ListGroupItem>
               </ListGroup>
             </div>
           </Col>
-
-          <Col lg="12">
-            <p className="footer__copyright">
-              Copyright {year} developed by Tosin Badmus. All rights reserved.
-            </p>
-          </Col>
         </Row>
+        <Col className="col">
+          <p className="footer__copyright">
+            © {yearTxt} Service - Developed by
+            <a href="https://github.com/EdisCode"> Edikan Ekanem</a>
+          </p>
+        </Col>
       </Container>
     </footer>
   );

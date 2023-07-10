@@ -1,10 +1,9 @@
 /* Home */
 .home {
   background: var(--bg-color);
-  /* width: 100%; */
-  /* height: 100%; */
   flex-shrink: 0;
   padding: 30px 0px 50px 0px;
+  margin-top: 50px;
 }
 
 .hero {
@@ -71,4 +70,52 @@
   line-height: 150%;
   letter-spacing: -0.275px;
   padding: 5px;
+}
+
+/* Login */
+.login {
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 50px;
+  display: flex;
+}
+
+.loginCon {
+  margin: 50px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 2px 2px var(--bg-color);
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  border-radius: 12px;
+  background: #e0e4ec;
+  width: 500px;
+  height: 50px;
+  border: none;
+  padding: 20px;
+  margin: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  outline-color: #c1c1c1;
+  color: grey;
+}
+
+/* btn */
+.btn {
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: white;
+  margin: 5px 150px;
+  padding: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: Inter;
 }

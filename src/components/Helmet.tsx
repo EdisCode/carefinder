@@ -13,7 +13,7 @@ const Helmet = (props: {
     | undefined;
 }) => {
   document.title = "Care Finder -" + props.title;
-  return <div className="w-100">{props.children}</div>;
+  return <div className="helmet">{props.children}</div>;
 };
 
 export default Helmet;

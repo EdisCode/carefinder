@@ -1,9 +1,12 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../context/auth-context";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHospital } from "@fortawesome/free-solid-svg-icons";
+import "../styles/components.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -23,12 +26,6 @@ const Navbar = () => {
       });
   };
 
-  // const toggleProfileActions = () => {
-  //   const profileActions: any = profileActionRef.current;
-  //   profileActions.style.display =
-  //     profileActions.style.display === "none" ? "block" : "none";
-  // };
-
   const navLinkStyles = ({ isActive }: any) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
@@ -38,7 +35,8 @@ const Navbar = () => {
 
   return (
     <nav ref={navRef}>
-      <div className="logo">CareFinder</div>
+      <FontAwesomeIcon className="logo" icon={faHospital} />
+      <div className="logoText">CareFinder</div>
       <div className="navLink">
         <NavLink style={navLinkStyles} to="/">
           Home
@@ -50,11 +48,7 @@ const Navbar = () => {
           Find Hospital
         </NavLink>
       </div>
-      <div
-        className="navLink"
-        ref={profileActionRef}
-        // onClick={toggleProfileActions}
-      >
+      <div className="navLink" ref={profileActionRef}>
         {currentUser ? (
           <div>
             <span>

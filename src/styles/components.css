@@ -2,24 +2,27 @@
 nav {
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(14, 61, 183, 0.15);
-  flex-shrink: 0;
-  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .logo {
   color: var(--primary-color);
-  font-size: 35px;
+  padding: 5px;
+  margin-left: 50px;
+}
+
+.logoText {
+  color: var(--primary-color);
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
-  letter-spacing: -0.385px;
   display: inline-flex;
   flex-shrink: 0;
   padding: 10px;
-  align-items: flex-start;
-  gap: 10px;
   height: 73px;
-  margin-left: 60px;
   margin-right: 400px;
 }
 
@@ -83,4 +86,68 @@ form {
   outline-color: #c1c1c1;
   color: grey;
   border: none;
+}
+
+/* Footer */
+.footer {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  margin: 20px;
+}
+
+.row {
+  display: inline-flex;
+  margin: 0px 50px;
+}
+
+.col {
+  margin: 10px;
+}
+
+.rowcol {
+  margin: 20px 50px;
+  padding: 30px 50px;
+  line-height: 25px;
+}
+
+.footer_text {
+  line-height: 30px;
+  color: var(--primary-color);
+  margin: 0px 50px;
+}
+
+.footer_quick-links ul li {
+  background: transparent !important;
+}
+
+.footer_quick-links ul li a {
+  color: var(--primary-color);
+}
+
+.quick__links-title {
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.footer__contact li span,
+.footer__contact li p {
+  color: rgba(57, 111, 173, 0.477);
+}
+
+.footer__contact li span {
+  font-size: 1.2rem;
+}
+
+.footer__contact li p {
+  font-size: 0.9rem;
+}
+
+.footer__copyright {
+  color: rgba(57, 111, 173, 0.477);
+  font-size: 0.9rem;
+  margin-top: 50px;
+  text-align: center;
 }

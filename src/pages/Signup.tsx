@@ -1,15 +1,12 @@
 import { useState } from "react";
-import Helmet from "../components/Helmet";
+import "../styles/pages.css";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase.config";
-
 import { setDoc, doc } from "firebase/firestore";
-import { db } from "../firebase.config";
-
+import { store } from "../firebase.config";
 import { toast } from "react-toastify";
 
 const Signup = () => {
@@ -33,7 +30,7 @@ const Signup = () => {
       const user = userCredential.user;
 
       //store userdata in firestore database
-      await setDoc(doc(db, "users", user.uid), {
+      await setDoc(doc(store, "users", user.uid), {
         uid: user.uid,
         displayName: username,
         email,
@@ -52,59 +49,63 @@ const Signup = () => {
   };
 
   return (
-    <Helmet title="Sign Up">
-      <section className="">
-        <Container>
-          <Row>
-            {loading ? (
-              <Col lg="12" className="text-center">
-                <h5 className="fw-bold">Loading...</h5>
-              </Col>
-            ) : (
-              <Col lg="6" className="m-auto text-center">
-                <h3 className="fw-bold mb-4">Sign Up</h3>
+    <section className="login">
+      <Container className="loginCon">
+        <Row>
+          {loading ? (
+            <Col>
+              <h5 className="heading">Loading...</h5>
+            </Col>
+          ) : (
+            <Col>
+              <h3 className="heading">Create An Account</h3>
 
-                <Form className="auth__form" onSubmit={signup}>
-                  <FormGroup className="form__group">
-                    <input
-                      type="text"
-                      placeholder="Enter your Username"
-                      value={username}
-                      onChange={(e) => setUserName(e.target.value)}
-                    />
-                  </FormGroup>
+              <Form className="authForm" onSubmit={signup}>
+                <FormGroup className="formGroup">
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder="Enter your Username"
+                    value={username}
+                    onChange={(e) => setUserName(e.target.value)}
+                  />
+                </FormGroup>
 
-                  <FormGroup className="form__group">
-                    <input
-                      type="email"
-                      placeholder="Enter your Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </FormGroup>
+                <FormGroup className="formGroup">
+                  <input
+                    type="email"
+                    className="input"
+                    placeholder="Enter your Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </FormGroup>
 
-                  <FormGroup className="form__group">
-                    <input
-                      type="password"
-                      placeholder="Enter your Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </FormGroup>
+                <FormGroup className="formGroup">
+                  <input
+                    type="password"
+                    className="input"
+                    placeholder="Enter your Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </FormGroup>
 
-                  <button type="submit" className="buy__button auth__btn ">
-                    Create an Account
-                  </button>
-                  <p>
-                    Already have an account? <Link to="/login">Login</Link>
-                  </p>
-                </Form>
-              </Col>
-            )}
-          </Row>
-        </Container>
-      </section>
-    </Helmet>
+                <button type="submit" className="btn">
+                  Create an Account
+                </button>
+                <p className="learn" style={{ textAlign: "center" }}>
+                  Already have an account?{" "}
+                  <Link style={{ color: "#08299b" }} to="/login">
+                    Login
+                  </Link>
+                </p>
+              </Form>
+            </Col>
+          )}
+        </Row>
+      </Container>
+    </section>
   );
 };
 
